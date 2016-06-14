@@ -31,17 +31,17 @@ QUnit.test('stringCalculator should take new line as delimiter', function(assert
 });
 
 QUnit.test('stringCalculator should take new line and question mark as delimiters', function(assert){
-  assert.equal(stringCalculator(''), 10, 'allows new line and question mark as delimeters');
+  assert.equal(stringCalculator('1\n2?3'), 6, 'allows new line and question mark as delimeters');
 });
 
 QUnit.test('stringCalculator should take multiple delimiters', function(assert){
-  assert.equal(stringCalculator(''), 10, 'allows multiple delimiters');
+  assert.equal(stringCalculator('1\n2?3;4'), 10, 'allows multiple delimiters');
 });
 
 QUnit.test('stringCalculator should take delimeters of any length', function(assert){
-  assert.equal(stringCalculator(''), 6, 'allows delimeters of any length');
+  assert.equal(stringCalculator('1???2;;;3'), 6, 'allows delimeters of any length');
 });
 
 QUnit.test('Allow multiple delimeters in any combination', function(assert){
-  assert.equal(stringCalculator(''), 6, 'account for all delimeter variations');
+  assert.equal(stringCalculator('1?;;;\n2;;;\n;??3'), 6, 'account for all delimeter variations');
 });
